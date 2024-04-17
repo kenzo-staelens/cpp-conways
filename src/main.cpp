@@ -1,6 +1,5 @@
 //main.cpp
 #include <unistd.h>
-#include <chrono>
 #include <iostream>
 #include "Conway.cpp"
 
@@ -38,9 +37,9 @@ bool rule(vector<vector<Cell>> &grid, int x, int y){
 
 void print_array(vector<vector<Cell>> grid, unsigned int width, unsigned int height){
     print_divider(width);
-    for(int y = 0; y < grid.size(); y++) {
+    for(long long unsigned int y = 0; y < grid.size(); y++) {
         cout << "| ";
-        for(int x = 0; x < grid[0].size(); x++) {
+        for(long long unsigned int x = 0; x < grid[0].size(); x++) {
             Cell cell = grid[y][x];
             if(cell.is_alive){
                 cout << "x" << " | ";
@@ -59,9 +58,9 @@ void move_grid_top(int height){
     }
 }
 
-void GameOfLife(vector<vector<Cell>>& grid, vector<vector<Cell>>& swapgrid){
-    for(int y = 0; y < grid.size(); y++) {
-        for(int x = 0; x < grid[0].size(); x++) {
+void GameOfLife(vector<vector<Cell>>& grid, vector<vector<Cell>> &swapgrid){
+    for(long long unsigned int y = 0; y < grid.size(); y++) {
+        for(long long unsigned int x = 0; x < grid[0].size(); x++) {
             swapgrid[y][x].is_alive=rule(grid,x,y);
         }
     }
